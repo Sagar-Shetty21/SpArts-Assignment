@@ -29,7 +29,7 @@ const Sidebar = () => {
     return (
         <div className="h-screen w-60 flex flex-col min-w-max">
             <div className="px-6 py-2">
-                <img className="w-52" src="/logo.png" />
+                <img className="w-52" src="/logo.png" alt="img"/>
                 <div className="text-center text-2xl">{getDate()}</div>
             </div>
             <div className="flex-grow bg-gray-600 text-white overflow-y-scroll">

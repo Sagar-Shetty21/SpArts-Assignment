@@ -20,17 +20,17 @@ export const StudentsData = [
     {
         id: 1,
         month: "Jan'23",
-        value: 230
+        value: 1230
     },
     {
         id: 2,
         month: "Feb'23",
-        value: 280
+        value: 4280
     },
     {
         id: 3,
         month: "Mar'23",
-        value: 386
+        value: 8386
     }
 ];
 

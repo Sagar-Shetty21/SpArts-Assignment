@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Chart } from 'react-chartjs-2';
-import { Chart as ChartJS, defaults } from 'chart.js/auto';
 import { RevenueData, StudentsData } from './data';
 import { FaRegCircleDown } from "react-icons/fa6";
+import { FaAngleDown } from "react-icons/fa6";
+
 
 const GrowthCard = () => {
     const [revenueData, setRevenueData] = useState({
@@ -51,11 +52,12 @@ const GrowthCard = () => {
                 <tr>
                     <th className="text-lg font-medium text-left p-4 pb-2">MONTH-ON-MONTH GROWTH</th>
                     <th className="p-4 pb-2 flex items-center justify-end">
-                        <select className="border-2 p-1" name="dropdown">
+                        <select id="dropdown2" className="border-2 p-1 appearance-none rounded-l px-4" name="dropdown2">
                             <option value="option1">Last 3 months</option>
                             <option value="option2">Last 6 months</option>
                             <option value="option3">Last 12 months</option>
                         </select>
+                        <label for="dropdown2" className="border-2 border-l-0 p-1.5 rounded-r"><FaAngleDown className="text-gray-300 text-xl"/></label>
                         <FaRegCircleDown className="text-3xl text-gray-500 ml-12 cursor-pointer"/>
                     </th>
                 </tr>

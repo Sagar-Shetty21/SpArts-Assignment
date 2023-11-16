@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Chart } from 'react-chartjs-2';
-import { Chart as ChartJS, defaults } from 'chart.js/auto';
 import { FeesData } from './data'
+import { FaAngleDown } from "react-icons/fa6";
+
 
 const FeeCard = () => {
 
@@ -40,12 +41,13 @@ const FeeCard = () => {
             <thead className="border-2">
                 <tr>
                     <th className="text-lg font-medium text-left p-4 pb-2">FEE PAYMENT SUMMARY</th>
-                    <th className="text-right p-4 pb-2">
-                        <select className="border-2 p-1" name="dropdown">
+                    <th className="text-right p-4 pb-2 flex justify-end items-center">
+                        <select id="dropdown" className="border-2 p-1 appearance-none rounded-l px-4" name="dropdown">
                             <option value="option1">Last 30 days</option>
                             <option value="option2">Last 60 days</option>
                             <option value="option3">Last 90 days</option>
                         </select>
+                        <label htmlFor="dropdown" className="border-2 border-l-0 p-1.5 rounded-r"><FaAngleDown className="text-gray-300 text-xl"/></label>
                     </th>
                 </tr>
             </thead>
