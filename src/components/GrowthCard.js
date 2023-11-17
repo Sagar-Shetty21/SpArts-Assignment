@@ -27,7 +27,7 @@ const GrowthCard = () => {
     })
 
     useEffect(() => {
-        fetch(`http://localhost:8080/revenue`)
+        fetch(`${process.env.REACT_API_ENDPOINT}/revenue`)
             .then(response => response.json())
             .then(data => {
                 setRevenueData(() => {
@@ -44,7 +44,7 @@ const GrowthCard = () => {
             .catch(error => {
                 console.error('Error fetching revenue data:', error);
         });
-        fetch(`http://localhost:8080/students`)
+        fetch(`${process.env.REACT_API_ENDPOINT}/students`)
             .then(response => response.json())
             .then(data => {
                 setStudentsData(() => {

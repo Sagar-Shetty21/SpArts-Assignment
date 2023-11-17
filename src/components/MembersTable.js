@@ -5,7 +5,7 @@ const MembersTable = () => {
     const [membersData, setMembersData] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:8080/members`)
+        fetch(`${process.env.REACT_API_ENDPOINT}/members`)
             .then(response => response.json())
             .then(data => {
                 setMembersData(data.message);

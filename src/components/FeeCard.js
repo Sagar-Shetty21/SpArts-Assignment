@@ -14,7 +14,7 @@ const FeeCard = () => {
     })
 
     useEffect(() => {
-        fetch(`http://localhost:8080/fees`)
+        fetch(`${process.env.REACT_API_ENDPOINT}/fees`)
             .then(response => response.json())
             .then(data => {
                 setFeesData(() => {
