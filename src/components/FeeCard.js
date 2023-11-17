@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Chart } from 'react-chartjs-2';
 import { FeesData } from './data'
 import { FaAngleDown } from "react-icons/fa6";
-import { CategoryScale, Chart as ChartJS, LinearScale, ArcElement } from "chart.js";
+import { CategoryScale, Chart as ChartJS, LinearScale, ArcElement, BarElement, DoughnutController } from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, ArcElement);
+ChartJS.register(CategoryScale, LinearScale, ArcElement, BarElement, DoughnutController);
 
 
 const FeeCard = () => {
