@@ -1,4 +1,4 @@
-export const RevenueData = [
+const RevenueData = [
     {
         id: 1,
         month: "Jan'23",
@@ -16,7 +16,7 @@ export const RevenueData = [
     }
 ];
 
-export const StudentsData = [
+const StudentsData = [
     {
         id: 1,
         month: "Jan'23",
@@ -34,7 +34,7 @@ export const StudentsData = [
     }
 ];
 
-export const FeesData = [
+const FeesData = [
     {
         id: 1,
         label: "AMOUNT RECEIVED",
@@ -48,7 +48,7 @@ export const FeesData = [
 ]
 
 
-export const ScheduleData = [
+const ScheduleData = [
     {
         category: "Classes",
         date: "Fri, 01 Sep",
@@ -114,3 +114,17 @@ export const ScheduleData = [
         users: "Udit K and 125+ more"
     },
 ]
+
+const MembersData = {
+    students: 1234,
+    coaches: 12
+}
+
+
+module.exports = {
+    RevenueData,
+    StudentsData,
+    FeesData,
+    ScheduleData,
+    MembersData,
+};

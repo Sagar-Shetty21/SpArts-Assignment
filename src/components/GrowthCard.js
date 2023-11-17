@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Chart } from 'react-chartjs-2';
-import { RevenueData, StudentsData } from './data';
 import { FaRegCircleDown } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa6";
 import { CategoryScale, Chart as ChartJS, LinearScale, ArcElement, BarElement, DoughnutController, BarController, Tooltip } from "chart.js";
@@ -10,22 +9,59 @@ ChartJS.register(CategoryScale, LinearScale, ArcElement, BarElement, DoughnutCon
 
 const GrowthCard = () => {
     const [revenueData, setRevenueData] = useState({
-        labels: RevenueData?.map((data) => data.month),
+        labels: [],
         datasets: [{
             label: "Fee Received",
-            data: RevenueData?.map((data) => data.value),
+            data: [],
             backgroundColor: "rgb(74, 90, 99)" 
         }]
     })
 
     const [studentsData, setStudentsData] = useState({
-        labels: StudentsData?.map((data) => data.month),
+        labels: [],
         datasets: [{
             label: "Active Students",
-            data: StudentsData?.map((data) => data.value),
+            data: [],
             backgroundColor: "rgb(110, 123, 130)"
         }]
     })
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/revenue`)
+            .then(response => response.json())
+            .then(data => {
+                setRevenueData(() => {
+                    return {
+                        labels: data.message?.map((obj) => obj.month),
+                        datasets: [{
+                            label: "Fee Received",
+                            data: data.message?.map((obj) => obj.value),
+                            backgroundColor: "rgb(74, 90, 99)" 
+                        }]
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching revenue data:', error);
+        });
+        fetch(`http://localhost:8080/students`)
+            .then(response => response.json())
+            .then(data => {
+                setStudentsData(() => {
+                    return {
+                        labels: data.message?.map((data) => data.month),
+                        datasets: [{
+                            label: "Active Students",
+                            data: data.message?.map((data) => data.value),
+                            backgroundColor: "rgb(110, 123, 130)"
+                        }]
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching students data:', error);
+        });
+    },[])
 
     var options = {
         scales: {

@@ -1,19 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { CiFilter } from "react-icons/ci";
 import { BsThreeDots } from "react-icons/bs";
-import { ScheduleData } from './data';
 
 
 const ScheduleTable = () => {
     const [currentFilter, setCurrentFilter] = useState("All")
+    const [currentTableData, setCurrentTableData] = useState([])
+    const [tableData, setTableData] = useState([])
 
-    const [tableData, setTableData] = useState(ScheduleData)
-
+    useEffect(() => {
+        fetch(`http://localhost:8080/schedule`)
+            .then(response => response.json())
+            .then(data => {
+                setCurrentTableData(data.message);
+                setTableData(data.message);
+            })
+            .catch(error => {
+                console.error('Error fetching schedule data:', error);
+        });
+    },[])
+    
     const handleClick = (tab) => {
         setCurrentFilter(tab);
-        setTableData(ScheduleData.filter(item => item.category === tab))
+        setCurrentTableData(tableData.filter(item => item.category === tab))
         if(tab === "All"){
-            setTableData(ScheduleData)
+            setCurrentTableData(tableData)
         }
     };
 
@@ -33,19 +44,19 @@ const ScheduleTable = () => {
                 </div>
             </div>
             <div className="border">
-                {tableData.map((data, index) => (
-                    <div key={index} className="flex w-full items-center p-2 justify-between">
-                        <div className="grid grid-cols-4 flex-grow items-center justify-center">
-                            <div className="flex items-center p-2">
-                                <input type="checkbox" />
-                                <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-white ml-1 ${data.category === 'Classes' ? 'bg-slate-400' : data.category === 'Meetings' ? 'bg-slate-500' : 'bg-slate-600'}`}>{data.category[0]}</div>
-                                <div className="ml-3 font-medium text-sm text-gray-700">{data.date}</div>
-                            </div>
-                            <div className="text-left font-medium text-sm text-gray-700">{data.time}</div>
-                            <div className="text-gray-500 font-bold text-left">{data.subject}</div>
-                            {data.extra ? <div className="text-red-500 border text-center border-dashed border-red-500 p-1 text-xs w-20 ml-28">{data.extra}</div> : <div className="hidden">none</div>}
+                {currentTableData.map((data, index) => (
+                    <div key={index} className="grid grid-cols-10 w-full items-center p-2 justify-between">
+                    
+                        <div className="col-span-2 flex items-center p-2">
+                            <input type="checkbox" />
+                            <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-white ml-1 ${data.category === 'Classes' ? 'bg-slate-400' : data.category === 'Meetings' ? 'bg-slate-500' : 'bg-slate-600'}`}>{data.category[0]}</div>
+                            <div className="ml-3 font-medium text-sm text-gray-700">{data.date}</div>
                         </div>
-                        <div className="inline-flex">
+                        <div className="col-span-2 text-left font-medium text-sm text-gray-700">{data.time}</div>
+                        <div className="col-span-3 text-gray-500 font-bold text-left">{data.subject}</div>
+                        {data.extra ? <div className="col-span-1 text-red-500 border text-center border-dashed border-red-500 p-1 text-xs w-20">{data.extra}</div> : <div className="col-span-1 text-transparent">none</div>}
+                    
+                        <div className="col-span-2 inline-flex justify-end ">
                             <div className="text-gray-400 text-sm">{data.users}</div>
                             <a href="#" className="text-blue-600 ml-6 mr-2">View</a>
                         </div>

@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Chart } from 'react-chartjs-2';
-import { FeesData } from './data'
 import { FaAngleDown } from "react-icons/fa6";
 import { CategoryScale, Chart as ChartJS, LinearScale, ArcElement, BarElement, DoughnutController, BarController, Tooltip } from "chart.js";
 
@@ -10,13 +9,29 @@ ChartJS.register(CategoryScale, LinearScale, ArcElement, BarElement, DoughnutCon
 const FeeCard = () => {
 
     const [feesData, setFeesData] = useState({
-        labels: FeesData?.map((data) => data.label),
-        datasets: [{
-            label: "",
-            data: FeesData?.map((data) => data.value),
-            backgroundColor: ["rgb(74, 90, 99)", "rgb(237, 117, 113)"] 
-        }]
+        labels: [],
+        datasets: []
     })
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/fees`)
+            .then(response => response.json())
+            .then(data => {
+                setFeesData(() => {
+                    return {
+                        labels: data.message?.map((data) => data.label),
+                        datasets: [{
+                            label: "",
+                            data: data.message?.map((data) => data.value),
+                            backgroundColor: ["rgb(74, 90, 99)", "rgb(237, 117, 113)"] 
+                        }]
+                    }
+                })
+            })
+            .catch(error => {
+                console.error('Error fetching fees data:', error);
+        });
+    },[])
 
     var options = {
         scales: {

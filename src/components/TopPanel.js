@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoSettingsOutline } from "react-icons/io5";
 import { LuBellDot } from "react-icons/lu";
 
 const TopPanel = () => {
+    const [userData, setUserData] = useState({});
+
+    useEffect(() => {
+        fetch('https://randomuser.me/api/')
+            .then(response => response.json())
+            .then(data => {
+                setUserData(data.results[0]);
+            })
+            .catch(error => {
+                console.error('Error fetching user data:', error);
+        });
+    },[])
+    
     return (
         <div className="flex items-center">
             <div className="flex-grow">
-                <div className="text-4xl font-medium">Welcome Cynthia,</div>
+                <div className="text-4xl font-medium">Welcome {userData?.name?.first},</div>
                 <div className="text-lg font-medium my-3">Here is a summary of your business</div>
             </div>
             <div className="flex">
@@ -14,10 +27,10 @@ const TopPanel = () => {
                 <LuBellDot className="bg-gray-200 text-6xl m-2 p-4 rounded-full hover:bg-gray-400 cursor-pointer"/>
             </div>
             <div className="flex items-center ml-20">
-                <img alt="img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className= "h-16 w-16 m-3 rounded-full"/>
+                <img alt="profile-img" src={userData?.picture?.medium} className= "h-16 w-16 m-3 rounded-full"/>
                 <div className="text-right">
-                    <div className="text-2xl font-medium">Cynthia John</div>
-                    <div>cj@example.com</div>
+                    <div className="text-2xl font-medium">{userData?.name?.first + " " + userData?.name?.last}</div>
+                    <div>{userData.email}</div>
                 </div>
             </div>
         </div>
