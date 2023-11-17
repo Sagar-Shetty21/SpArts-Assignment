@@ -3,6 +3,9 @@ import { Chart } from 'react-chartjs-2';
 import { RevenueData, StudentsData } from './data';
 import { FaRegCircleDown } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa6";
+import { CategoryScale, Chart as ChartJS, LinearScale, BarElement } from "chart.js";
+
+ChartJS.register(CategoryScale, LinearScale, BarElement);
 
 
 const GrowthCard = () => {

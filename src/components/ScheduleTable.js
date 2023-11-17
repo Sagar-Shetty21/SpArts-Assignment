@@ -3,6 +3,7 @@ import { CiFilter } from "react-icons/ci";
 import { BsThreeDots } from "react-icons/bs";
 import { ScheduleData } from './data';
 
+
 const ScheduleTable = () => {
     const [currentFilter, setCurrentFilter] = useState("All")
 
