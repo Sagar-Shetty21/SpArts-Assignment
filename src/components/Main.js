@@ -11,12 +11,12 @@ const Main = () => {
     <div className="flex-grow overflow-y-scroll p-4 pt-1">
         <TopPanel />
 
-        <div class="grid grid-cols-2 gap-1">
+        <div className="grid grid-cols-2 gap-1">
           <MembersTable />
           <QuickActions />
         </div>
 
-        <div class="grid grid-cols-2 gap-1 mt-1">
+        <div className="grid grid-cols-2 gap-1 mt-1">
           <FeeCard />
           <GrowthCard />
         </div>

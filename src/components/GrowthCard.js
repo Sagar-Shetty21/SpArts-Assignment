@@ -3,9 +3,9 @@ import { Chart } from 'react-chartjs-2';
 import { RevenueData, StudentsData } from './data';
 import { FaRegCircleDown } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa6";
-import { CategoryScale, Chart as ChartJS, LinearScale, ArcElement, BarElement, DoughnutController, BarController } from "chart.js";
+import { CategoryScale, Chart as ChartJS, LinearScale, ArcElement, BarElement, DoughnutController, BarController, Tooltip } from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, ArcElement, BarElement, DoughnutController, BarController);
+ChartJS.register(CategoryScale, LinearScale, ArcElement, BarElement, DoughnutController, BarController, Tooltip);
 
 
 const GrowthCard = () => {
@@ -60,7 +60,7 @@ const GrowthCard = () => {
                             <option value="option2">Last 6 months</option>
                             <option value="option3">Last 12 months</option>
                         </select>
-                        <label for="dropdown2" className="border-2 border-l-0 p-1.5 rounded-r"><FaAngleDown className="text-gray-300 text-xl"/></label>
+                        <label htmlFor="dropdown2" className="border-2 border-l-0 p-1.5 rounded-r"><FaAngleDown className="text-gray-300 text-xl"/></label>
                         <FaRegCircleDown className="text-3xl text-gray-500 ml-12 cursor-pointer"/>
                     </th>
                 </tr>
