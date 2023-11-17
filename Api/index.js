@@ -18,5 +18,5 @@ app.use('/schedule', schedule);
 app.use('/students', students);
 
 app.listen(8080, () => {
-    console.log(`Server is running on ${process.env.REACT_API_ENDPOINT}`);
+    console.log(`Server is running on https://dummy-data-api.vercel.app`);
 });

@@ -5,7 +5,7 @@ const MembersTable = () => {
     const [membersData, setMembersData] = useState({})
 
     useEffect(() => {
-        fetch(`${process.env.REACT_API_ENDPOINT}/members`)
+        fetch(`https://dummy-data-api.vercel.app/members`)
             .then(response => response.json())
             .then(data => {
                 setMembersData(data.message);

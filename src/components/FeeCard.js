@@ -14,7 +14,7 @@ const FeeCard = () => {
     })
 
     useEffect(() => {
-        fetch(`${process.env.REACT_API_ENDPOINT}/fees`)
+        fetch(`https://dummy-data-api.vercel.app/fees`)
             .then(response => response.json())
             .then(data => {
                 setFeesData(() => {

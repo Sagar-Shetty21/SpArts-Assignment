@@ -9,7 +9,7 @@ const ScheduleTable = () => {
     const [tableData, setTableData] = useState([])
 
     useEffect(() => {
-        fetch(`${process.env.REACT_API_ENDPOINT}/schedule`)
+        fetch(`https://dummy-data-api.vercel.app/schedule`)
             .then(response => response.json())
             .then(data => {
                 setCurrentTableData(data.message);
@@ -19,7 +19,7 @@ const ScheduleTable = () => {
                 console.error('Error fetching schedule data:', error);
         });
     },[])
-        console.log("process")
+        
     const handleClick = (tab) => {
         setCurrentFilter(tab);
         setCurrentTableData(tableData.filter(item => item.category === tab))

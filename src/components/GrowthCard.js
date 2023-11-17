@@ -27,7 +27,7 @@ const GrowthCard = () => {
     })
 
     useEffect(() => {
-        fetch(`${process.env.REACT_API_ENDPOINT}/revenue`)
+        fetch(`https://dummy-data-api.vercel.app/revenue`)
             .then(response => response.json())
             .then(data => {
                 setRevenueData(() => {
@@ -44,7 +44,7 @@ const GrowthCard = () => {
             .catch(error => {
                 console.error('Error fetching revenue data:', error);
         });
-        fetch(`${process.env.REACT_API_ENDPOINT}/students`)
+        fetch(`https://dummy-data-api.vercel.app/students`)
             .then(response => response.json())
             .then(data => {
                 setStudentsData(() => {
