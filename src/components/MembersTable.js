@@ -16,7 +16,7 @@ const MembersTable = () => {
     },[])
 
     return (
-        <table className="border-2 p-2 rounded bg-white">
+        <table className="border-2 p-2 rounded bg-white col-span-2 lg:col-span-1">
             <thead className="border-2">
                 <tr>
                     <th className="text-xs text-slate-400 font-bold text-left p-4 pb-2">ACTIVE STUDENTS</th>

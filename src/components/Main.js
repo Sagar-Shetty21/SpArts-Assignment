@@ -6,10 +6,10 @@ import FeeCard from './FeeCard'
 import GrowthCard from './GrowthCard'
 import ScheduleTable from './ScheduleTable'
 
-const Main = () => {
+const Main = ({setActive}) => {
   return (
-    <div className="flex-grow overflow-y-scroll p-4 pt-1">
-        <TopPanel />
+    <div className="flex-grow overflow-y-scroll p-2 lg:p-4 pt-1">
+        <TopPanel setActive={setActive}/>
 
         <div className="grid grid-cols-2 gap-1">
           <MembersTable />

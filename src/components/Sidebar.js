@@ -9,7 +9,7 @@ import { FaUserTie } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import Searchbar from './Searchbar';
 
-const Sidebar = () => {
+const Sidebar = ({active, setActive}) => {
 
     const getDate = () => {
         const months = [
@@ -27,46 +27,49 @@ const Sidebar = () => {
     }
 
     return (
-        <div className="h-screen w-60 flex flex-col min-w-max">
-            <div className="px-6 py-2">
-                <img className="w-52" src="/logo.png" alt="img"/>
-                <div className="text-center text-2xl">{getDate()}</div>
-            </div>
-            <div className="flex-grow bg-gray-600 text-white overflow-y-scroll">
-                <div className="p-4 font-bold mt-4">Main Menu</div>
-                <NavItem>
-                    <MdBarChart className="text-2xl mr-4"/>
-                    <span>Dashboard</span>
-                </NavItem>
-                <NavItem>
-                    <FaBuildingUser className="text-2xl mr-4"/>
-                    <span>Acadamy Management</span>
-                </NavItem>
+        <>
+            {active && <div class="fixed top-0 left-0 w-full h-full bg-slate-600 opacity-50 z-10 xl:hidden" onClick={() => setActive(false)}></div>}
+            <div className={`z-20 h-screen flex flex-col absolute min-w-max ${active ? "" : "hidden xl:flex" } xl:static transition duration-150 ease-out`}>
+                <div className="px-6 py-2 bg-slate-100">
+                    <img className="w-52" src="/logo.png" alt="img"/>
+                    <div className="text-center text-2xl">{getDate()}</div>
+                </div>
+                <div className="flex-grow bg-gray-600 text-white overflow-y-scroll">
+                    <div className="p-4 font-bold mt-4">Main Menu</div>
+                    <NavItem setActive={setActive}>
+                        <MdBarChart className="text-2xl mr-4"/>
+                        <span>Dashboard</span>
+                    </NavItem>
+                    <NavItem setActive={setActive}>
+                        <FaBuildingUser className="text-2xl mr-4"/>
+                        <span>Acadamy Management</span>
+                    </NavItem>
 
-                <div className="p-4 font-bold mt-8">More</div>
-                <Searchbar />
-                <NavItem>
-                    <PiStudentBold className="text-2xl mr-4"/>
-                    <span>Students</span>
-                </NavItem>
-                <NavItem>
-                    <FaMoneyBillAlt className="text-2xl mr-4"/>
-                    <span>Fee Payment</span>
-                </NavItem>
-                <NavItem>
-                    <HiUsers className="text-2xl mr-4"/>
-                    <span>Enquiries</span>
-                </NavItem>
-                <NavItem>
-                    <FaUserTie className="text-2xl mr-4"/>
-                    <span>Coaches</span>
-                </NavItem>
-                <NavItem>
-                    <SlCalender className="text-2xl mr-4"/>
-                    <span>Schedule</span>
-                </NavItem>
+                    <div className="p-4 font-bold mt-8">More</div>
+                    <Searchbar />
+                    <NavItem setActive={setActive}>
+                        <PiStudentBold className="text-2xl mr-4"/>
+                        <span>Students</span>
+                    </NavItem>
+                    <NavItem setActive={setActive}>
+                        <FaMoneyBillAlt className="text-2xl mr-4"/>
+                        <span>Fee Payment</span>
+                    </NavItem>
+                    <NavItem setActive={setActive}>
+                        <HiUsers className="text-2xl mr-4"/>
+                        <span>Enquiries</span>
+                    </NavItem>
+                    <NavItem setActive={setActive}>
+                        <FaUserTie className="text-2xl mr-4"/>
+                        <span>Coaches</span>
+                    </NavItem>
+                    <NavItem setActive={setActive}>
+                        <SlCalender className="text-2xl mr-4"/>
+                        <span>Schedule</span>
+                    </NavItem>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

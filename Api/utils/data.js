@@ -36,15 +36,15 @@ const StudentsData = [
 
 const FeesData = [
     {
+        id: 2,
+        label: "AMOUNT PENDING",
+        value: 334000
+    },
+    {
         id: 1,
         label: "AMOUNT RECEIVED",
         value: 624000
     },
-    {
-        id: 2,
-        label: "AMOUNT PENDING",
-        value: 334000
-    }
 ]
 
 

@@ -86,7 +86,7 @@ const GrowthCard = () => {
     }
     
     return (
-        <table className="table-fixed border-2 p-2 rounded bg-white w-full">
+        <table className="table-fixed border-2 p-2 rounded bg-white w-full col-span-2 lg:col-span-1">
             <thead className="border-2">
                 <tr>
                     <th className="text-lg font-medium text-left p-4 pb-2">MONTH-ON-MONTH GROWTH</th>
