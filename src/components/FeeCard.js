@@ -58,9 +58,9 @@ const FeeCard = () => {
         <table className="border-2 p-2 rounded bg-white w-full col-span-2 lg:col-span-1">
             <thead className="border-2">
                 <tr>
-                    <th className="text-lg font-medium text-left p-4 pb-2">FEE PAYMENT SUMMARY</th>
+                    <th className="text-sm md:text-lg font-medium text-left p-4 pb-2">FEE PAYMENT SUMMARY</th>
                     <th className="text-right p-4 pb-2 flex justify-end items-center">
-                        <select id="dropdown" className="border-2 p-1 appearance-none rounded-l px-4" name="dropdown">
+                        <select id="dropdown" className="border-2 p-1 appearance-none rounded-l px-2 md:px-4" name="dropdown">
                             <option value="option1">Last 30 days</option>
                             <option value="option2">Last 60 days</option>
                             <option value="option3">Last 90 days</option>

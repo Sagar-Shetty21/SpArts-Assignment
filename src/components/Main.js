@@ -8,7 +8,7 @@ import ScheduleTable from './ScheduleTable'
 
 const Main = ({setActive}) => {
   return (
-    <div className="flex-grow overflow-y-scroll p-2 lg:p-4 pt-1">
+    <div className="flex-grow overflow-y-scroll overflow-x-hidden p-2 lg:p-4 pt-1">
         <TopPanel setActive={setActive}/>
 
         <div className="grid grid-cols-2 gap-1">

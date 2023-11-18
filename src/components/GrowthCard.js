@@ -89,15 +89,15 @@ const GrowthCard = () => {
         <table className="table-fixed border-2 p-2 rounded bg-white w-full col-span-2 lg:col-span-1">
             <thead className="border-2">
                 <tr>
-                    <th className="text-lg font-medium text-left p-4 pb-2">MONTH-ON-MONTH GROWTH</th>
+                    <th className="text-sm md:text-lg font-medium text-left p-4 pb-2">MONTH-ON-MONTH GROWTH</th>
                     <th className="p-4 pb-2 flex items-center justify-end">
-                        <select id="dropdown2" className="border-2 p-1 appearance-none rounded-l px-4" name="dropdown2">
+                        <select id="dropdown2" className="border-2 p-1 appearance-none rounded-l px-2 md:px-4" name="dropdown2">
                             <option value="option1">Last 3 months</option>
                             <option value="option2">Last 6 months</option>
                             <option value="option3">Last 12 months</option>
                         </select>
                         <label htmlFor="dropdown2" className="border-2 border-l-0 p-1.5 rounded-r"><FaAngleDown className="text-gray-300 text-xl"/></label>
-                        <FaRegCircleDown className="text-3xl text-gray-500 ml-12 cursor-pointer"/>
+                        <FaRegCircleDown className="text-3xl text-gray-500 ml-12 cursor-pointer hidden md:block"/>
                     </th>
                 </tr>
             </thead>

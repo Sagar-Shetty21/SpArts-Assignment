@@ -20,18 +20,18 @@ const TopPanel = ({setActive}) => {
     return (
         <div className="flex items-center">
             <div className="cursor-pointer" onClick={() => setActive(true)}>
-                <GiHamburgerMenu className="text-6xl lg:text-7xl pr-4 xl:hidden" />
+                <GiHamburgerMenu className="text-5xl lg:text-7xl pr-4 xl:hidden" />
             </div>
             <div className="flex-grow">
-                <div className="text-2xl lg:text-4xl font-medium">Welcome {userData?.name?.first},</div>
-                <div className="text-md lg:text-lg font-medium xl:my-2">Here is a summary of your business</div>
+                <div className="text-lg lg:text-4xl font-medium">Welcome {userData?.name?.first},</div>
+                <div className="text-xs lg:text-lg font-medium xl:my-2">Here is a summary of your business</div>
             </div>
-            <div className="flex">
-                <IoSettingsOutline className="bg-gray-200 text-4xl m-1 p-2 lg:text-6xl lg:m-2 lg:p-4 rounded-full hover:bg-gray-400 cursor-pointer"/>
-                <LuBellDot className="bg-gray-200 text-4xl m-1 p-2 lg:text-6xl lg:m-2 lg:p-4 rounded-full hover:bg-gray-400 cursor-pointer"/>
+            <div className="flex flex-col sm:flex-row">
+                <IoSettingsOutline className="bg-gray-200 text-2xl m-1 p-1 lg:text-6xl lg:m-2 lg:p-4 rounded-full hover:bg-gray-400 cursor-pointer"/>
+                <LuBellDot className="bg-gray-200 text-2xl m-1 p-1 lg:text-6xl lg:m-2 lg:p-4 rounded-full hover:bg-gray-400 cursor-pointer"/>
             </div>
             <div className="flex items-center lg:ml-20">
-                <img alt="profile-img" src={userData?.picture?.medium} className= "h-12 w-12 lg:h-16 lg:w-16 m-3 rounded-full"/>
+                <img alt="profile-img" src={userData?.picture?.medium} className= "h-10 w-10 lg:h-16 lg:w-16 m-3 rounded-full"/>
                 <div className="text-right hidden lg:block">
                     <div className="text-2xl font-medium">{userData?.name?.first + " " + userData?.name?.last}</div>
                     <div>{userData.email}</div>
